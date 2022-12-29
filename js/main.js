@@ -3,8 +3,8 @@ require([
     "esri/config",
     "esri/identity/OAuthInfo",
     "esri/identity/IdentityManager",
-    "esri/WebScene",
-    "esri/views/SceneView",
+    "esri/Map",
+    "esri/views/MapView",
     
     // Widgets
     "esri/widgets/Home",
@@ -22,7 +22,7 @@ require([
 
     // Dojo
     "dojo/domReady!"
-], function(esriConfig, OAuthInfo, esriId, WebScene, SceneView, Home, Search, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
+], function(esriConfig, OAuthInfo, esriId, Map, MapView, Home, Search, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
 
     // OAuth certification process
     // Required to access secure content from AGOL
@@ -42,22 +42,15 @@ require([
         });
     
     // Construct a new web scene using satellite imagery and elevation layer
-    const map = new WebScene({
-        basemap: "satellite",
-        ground: "world-elevation"
+    const map = new Map({
+        basemap: "streets-vector"
     });
 
-    const scene = new SceneView({
+    const scene = new MapView({
         container: "viewDiv",
         map: map,
-        camera: {
-            position: {
-                x: -97,
-                y: 10,
-                z: 3500000
-            },
-            tilt: 35
-        }
+        zoom: 4,
+        center: [-97, 39]
     });
 
     // Allow popup to be docked
