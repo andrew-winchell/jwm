@@ -83,14 +83,8 @@ require([
     view.when(() => {
         // Esri layers list widget
         const layerList = new LayerList({
+            container: "sidebar",
             view: view
-        });
-
-        // Add layers list widget to ui
-        view.ui.add({
-            component: layerList,
-            position: "top-right",
-            index: 0
         });
     });
 
