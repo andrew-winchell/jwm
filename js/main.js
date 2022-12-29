@@ -10,6 +10,7 @@ require([
     // Widgets
     "esri/widgets/Home",
     "esri/widgets/Search",
+    "esri/widgets/LayerList",
 
     // Bootstrap
     "bootstrap/Collapse",
@@ -23,7 +24,7 @@ require([
 
     // Dojo
     "dojo/domReady!"
-], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Home, Search, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
+], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Home, Search, LayerList, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
 
     // OAuth certification process
     // Required to access secure content from AGOL
@@ -76,6 +77,21 @@ require([
         component: homeBtn,
         position: "top-left",
         index: 0
+    });
+
+    // Wait for view to finish loading
+    view.when(() => {
+        // Esri layers list widget
+        const layerList = new LayerList({
+            view: view
+        });
+
+        // Add layers list widget to ui
+        view.ui.add({
+            component: layerList,
+            position: "top-right",
+            index: 0
+        });
     });
 
     // Search widget - add to navbar
