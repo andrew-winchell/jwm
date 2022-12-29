@@ -88,8 +88,30 @@
         <!--Start Main Layout-->
         <div class="grid-container">
             <div class="sidebar">
-                <div id="sb-layers">
+                <div class="sidebar-tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Event</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">IWA</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Report</a>
+                        </li>
+                      </ul>
                 </div>
+                <!--Start Sidebar tab panels-->
+                <div class="sidebar-panel" id="home">
+                    <div id="sb-layers"></div>
+                </div>
+                <div class="sidebar-panel" id="event-panel"></div>
+                <div class="sidebar-panel" id="iwa-panel"></div>
+                <!--End Sidebar tab panels-->
+
                 <button id="sidebar-btn">
                     <p id="sidebar-btn-label">Sidebar</p>
                 </button>
