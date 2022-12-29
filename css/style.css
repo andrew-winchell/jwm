@@ -27,6 +27,7 @@ html, body {
     background-color: white;
     transition: 1s ease;
     position: relative;
+    text-align: center;
 }
 
 .sidebar-panel {
