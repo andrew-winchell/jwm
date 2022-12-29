@@ -53,3 +53,7 @@ html, body {
     margin: auto;
     writing-mode: vertical-lr;
 }
+
+#viewDiv {
+    position: relative;
+}
