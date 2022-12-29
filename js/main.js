@@ -83,7 +83,7 @@ require([
     view.when(() => {
         // Esri layers list widget
         const layerList = new LayerList({
-            container: "sidebar",
+            container: "sb-layers",
             view: view
         });
     });
