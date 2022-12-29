@@ -105,10 +105,10 @@ require([
     });
 
     // Allow popup to be docked
-    scene.popup.dockEnabled = true;
+    view.popup.dockEnabled = true;
 
     // Options for docking popup
-    scene.popup.dockOptions = {
+    view.popup.dockOptions = {
         buttonEnabled: false,   //do not allow user to decide on when docking occurs
         breakpoint: {   //set when screen is smaller than w*h, popup will automatically dock
             width: 5000,    //default to always dock
