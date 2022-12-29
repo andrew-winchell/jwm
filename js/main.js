@@ -5,6 +5,7 @@ require([
     "esri/identity/IdentityManager",
     "esri/Map",
     "esri/views/MapView",
+    "esri/layers/FeatureLayer",
     
     // Widgets
     "esri/widgets/Home",
@@ -22,7 +23,7 @@ require([
 
     // Dojo
     "dojo/domReady!"
-], function(esriConfig, OAuthInfo, esriId, Map, MapView, Home, Search, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
+], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Home, Search, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
 
     // OAuth certification process
     // Required to access secure content from AGOL
