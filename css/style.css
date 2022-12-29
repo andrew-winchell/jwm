@@ -73,3 +73,7 @@ html, body {
 #viewDiv {
     position: relative;
 }
+
+.tab-icon {
+    color: black;
+}
