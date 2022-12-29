@@ -89,7 +89,32 @@
         <div class="grid-container">
             <div class="sidebar">
                 <div class="sidebar-tabs">
-                    <ul class="nav nav-tabs nav-justified">
+                    <table class="tabs">
+                        <tr>
+                            <td>
+                                <button type="button">
+                                    <calcite-icon icon="data-magnifying-glass" scale="l"></calcite-icon>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button">
+                                    <calcite-icon icon="exclamation-mark-triangle" scale="l"></calcite-icon>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button">
+                                    <calcite-icon icon="drive-time" scale="l"></calcite-icon>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button">
+                                    <calcite-icon icon="clipboard" scale="l"></calcite-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!--<ul class="nav nav-tabs">
                         <li class="nav-item">
                             <button class="nav-link active tab-icon" id="data-tab" aria-current="page" href="#">
                                 <calcite-icon icon="data-magnifying-glass" scale="l"></calcite-icon>
@@ -110,8 +135,9 @@
                                 <calcite-icon icon="clipboard" scale="l"></calcite-icon>
                             </button>
                         </li>
-                    </ul>
+                    </ul>-->
                 </div>
+
                 <!--Start Sidebar tab panels-->
                 <div class="tab-pane fade show active sidebar-panel" id="home">
                     <div id="sb-layers"></div>
