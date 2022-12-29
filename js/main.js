@@ -40,10 +40,19 @@ require([
         .then(() => {
             console.log("Sign In Successful.")
         });
+
+    // Add default weather event layers
+    const firePntLyr = new FeatureLayer({
+        url: "https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/USA_Wildfires_v1/FeatureServer/0",
+    });
+    const fireBndryLyr = new FeatureLayer({
+        url: "https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/USA_Wildfires_v1/FeatureServer/1",
+    });
     
     // Construct a new web scene using satellite imagery and elevation layer
     const map = new Map({
-        basemap: "streets-vector"
+        basemap: "streets-vector",
+        layers: [firePntLyr, fireBndryLyr]
     });
 
     const scene = new MapView({
@@ -64,6 +73,7 @@ require([
             height: 5000
         }
     };
+
 
 
 })
