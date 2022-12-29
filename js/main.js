@@ -59,11 +59,23 @@ require([
         layers: [ethqkePntLyr, fireBndryLyr, firePntLyr]
     });
 
-    const scene = new MapView({
+    const view = new MapView({
         container: "viewDiv",
         map: map,
         zoom: 4,
         center: [-97, 39]
+    });
+
+    // Esri home widget
+    const homeBtn = new Home({
+        view: view
+    })
+
+    // Add home widget to ui
+    view.ui.add({
+        component: homeBtn,
+        position: "top-left",
+        index: 0
     });
 
     // Allow popup to be docked
