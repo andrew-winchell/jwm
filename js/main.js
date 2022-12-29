@@ -56,7 +56,7 @@ require([
     // Construct a new web scene using satellite imagery and elevation layer
     const map = new Map({
         basemap: "streets-vector",
-        layers: [ethqkePntLyr, firePntLyr, fireBndryLyr]
+        layers: [ethqkePntLyr, fireBndryLyr, firePntLyr]
     });
 
     const scene = new MapView({
