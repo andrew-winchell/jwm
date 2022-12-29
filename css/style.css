@@ -53,7 +53,7 @@ html, body {
 }
 
 .nav-item_hide {
-    visibility: hidden;
+    left: 50px;
 }
   
 #sidebar-btn {
