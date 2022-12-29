@@ -52,8 +52,12 @@ html, body {
     width: 0%;
 }
 
+.nav-item {
+    transition: 1s ease;
+}
+
 .nav-item_hide {
-    left: 50px;
+    left: -100%;
 }
   
 #sidebar-btn {
