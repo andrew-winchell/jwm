@@ -78,6 +78,22 @@ require([
         index: 0
     });
 
+    // Search widget - add to navbar
+    const searchWidget = new Search({
+        container: "searchWidgetDiv",
+        view: view,
+        includeDefaultSources: true
+    });
+
+    // Expanding action on search widget
+    // Built into library from calcite-maps
+    CalciteMapArcGISSupport.setSearchExpandEvents(searchWidget);
+
+    // Trigger actions for search widget after a search is completed
+    searchWidget.on("search-complete", (e) => {
+        console.log("Search Complete");
+    });
+
     // Allow popup to be docked
     scene.popup.dockEnabled = true;
 
