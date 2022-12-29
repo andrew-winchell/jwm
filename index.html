@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>J-CAT WEMS</title>
+
+        <!--Main CSS-->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!--ESRI JS CSS-->
+        <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css">
+
+        <!--Calcite Maps Bootstrap-->
+        <link rel="stylesheet" type="text/css" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.10.css" />
+        
+        <!--Calcite Maps-->
+        <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.10.css">
+
+        <!--[if IE<9]
+            <link rel="stylesheet" href="css/style.css">
+        <![endif]-->
+    </head>
+
+    <!--Start Navbar-->
+    <body class="calcite-maps calcite-nav-top">
+        <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark">
+            <!--Data Sources-->
+            <div class="dropdown calcite-dropdown calcite-text-dark calcite-bg-light" role="presentation">
+                <a class="dropdown-toggle" role="menubutton" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                    <div class="calcite-dropdown-toggle">
+                        <span class="sr-only">Toggle dropdown menu</span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!--Dropdown Menu-->
+                <ul class="dropdown-menu" role="menu">
+                    <!--Dropdown List Items-->
+                    <li id="dropdownTitle">
+                        Data Sources
+                    </li>
+                    <li>   
+                        <a role="menuitem" tabindex="0" href="https://www.cobec.com/" target="_blank" rel="noopener noreferrer" aria-haspopup="true">
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                            Cobec Consulting
+                        </a>
+                    </li>
+                    <li>
+                        <a role="menuitem" tabindex="0" href="https://github.com/Esri/calcite-maps" target="_blank" rel="noopener noreferrer" aria-haspopup="true">
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                         ESRI Calcite Maps
+                        </a>
+                    </li>
+                    <li>   
+                        <a role="menuitem" tabindex="0" href="https://geodata.bts.gov/datasets/airports-1/explore?location=10.125346%2C-1.633860%2C2.67" target="_blank" rel="noopener noreferrer" aria-haspopup="true">
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                         U.S. DOT Airports
+                        </a>
+                    </li>
+                    <li>   
+                        <a role="menuitem" tabindex="0" href="https://geodata.bts.gov/datasets/runway-lines/explore?location=11.411130%2C-1.628750%2C2.84" target="_blank" rel="noopener noreferrer" aria-haspopup="true">
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                         U.S. DOT Runways
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--Title-->
+            <div class="calcite-title calcite-overflow-hidden">
+                <span class="calcite-title-main">J-CAT Weather Event Monitoring System</span>
+                <span class="calcite-title-divider hidden-xs"></span>
+                <span class="calcite-title-sub hidden-xs">Powered by Cobec Consulting, Inc.</span>
+            </div>
+            <!--Search-->
+            <ul class="nav navbar-nav calcite-nav">
+                <li>
+                    <div class="calcite-navbar-search calcite-search-expander">
+                        <div id="searchWidgetDiv"></div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!--End Navbar-->
+
+        <!--Start Main Layout-->
+        <div class="grid-container">
+            <div class="sidebar">
+                <button id="sidebar-btn">
+                    <p id="sidebar-btn-label">Sidebar</p>
+                </button>
+            </div>
+            <div class="main-content">
+                <div id="viewDiv"></div>
+            </div>
+        </div>
+
+
+        <!--End Main Layout-->
+
+        <script type="text/javascript">
+            var dojoConfig = {
+              packages: [{
+                name: "bootstrap",
+                location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
+              },
+              {
+                name: "calcite-maps",
+                location: "https://esri.github.io/calcite-maps/dist/js/dojo"
+              }]
+            };
+          </script>
+
+        <script src="https://js.arcgis.com/4.24/"></script>
+        <script src="lib/jquery-3.6.0.js"></script>
+        <script type="module" src="https://js.arcgis.com/calcite-components/1.0.0-beta.91/calcite.esm.js"></script>
+        <script src="js/layout-control.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
