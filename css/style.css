@@ -85,3 +85,19 @@ html, body {
 .tab-icon {
     color: black;
 }
+
+#data-panel {
+    background-color: burlywood;
+}
+
+#event-panel {
+    background-color: aquamarine;
+}
+
+#iwa-panel {
+    background-color: thistle;
+}
+
+#report-panel {
+    background-color: springgreen;
+}
