@@ -11,6 +11,7 @@ require([
     "esri/widgets/Home",
     "esri/widgets/Search",
     "esri/widgets/LayerList",
+    "esri/widgets/FeatureForm",
 
     // Bootstrap
     "bootstrap/Collapse",
@@ -24,7 +25,7 @@ require([
 
     // Dojo
     "dojo/domReady!"
-], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Home, Search, LayerList, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
+], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Home, Search, LayerList, FeatureForm, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
 
     // OAuth certification process
     // Required to access secure content from AGOL
@@ -56,8 +57,6 @@ require([
     const evtLyr = new FeatureLayer({
         url: "https://services3.arcgis.com/geBQ3ULfATqBs2UF/arcgis/rest/services/jcat_weather_event/FeatureServer/0",
     });
-
-    
     
     // Construct a new web scene using satellite imagery and elevation layer
     const map = new Map({
@@ -92,6 +91,39 @@ require([
             view: view
         });
     });
+
+    const featureForm = new FeatureForm({
+        view: view,
+        container: "event-panel",
+        layer: evtLyr,
+        formTemplate: {
+            title: "Enter Weather Event Information",
+            elements: [
+                {
+                    type: "field",
+                    fieldName: "event_name",
+                    label: "Enter the name of the weather event or system"
+                },
+                {
+                    type: "field",
+                    fieldName: "occurrence",
+                    label: "Date the event occurred"
+                },
+                {
+                    type: "field",
+                    fieldName: "weather_type",
+                    label: "Select the weather type"
+                },
+                {
+                    type: "field",
+                    fieldName: "submitter",
+                    label: "Enter your name"
+                },
+            ]
+        }
+    })
+
+
 
     // Search widget - add to navbar
     const searchWidget = new Search({
