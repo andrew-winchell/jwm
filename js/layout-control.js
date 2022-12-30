@@ -42,7 +42,7 @@ $("#iwa-tab").click(() => {
     $("#report-tab").removeClass("tab-active");
 });
 
-$("#data-tab").click(() => {
+$("#report-tab").click(() => {
     $("#home-panel").css("display", "none");
     $("#event-panel").css("display", "none");
     $("#iwa-panel").css("display", "none");
