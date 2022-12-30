@@ -12,6 +12,7 @@ require([
     "esri/widgets/Search",
     "esri/widgets/LayerList",
     "esri/widgets/FeatureForm",
+    "esri/widgets/FeatureTemplates",
 
     // Bootstrap
     "bootstrap/Collapse",
@@ -25,7 +26,7 @@ require([
 
     // Dojo
     "dojo/domReady!"
-], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Home, Search, LayerList, FeatureForm, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
+], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Home, Search, LayerList, FeatureForm, FeatureTemplates, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
 
     // OAuth certification process
     // Required to access secure content from AGOL
@@ -121,7 +122,12 @@ require([
                 },
             ]
         }
-    })
+    });
+
+    const templates = new FeatureTemplates({
+        container: "event-panel",
+        layers: [evtLyr]
+    });
 
 
 
