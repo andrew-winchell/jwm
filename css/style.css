@@ -94,7 +94,7 @@ html, body {
 }
 
 .tabs button:hover {
-    border: 1px dashed #ddd;
+    border: 1px dashed rgb(181, 222, 247);
 }
 
 .tab-icon {
