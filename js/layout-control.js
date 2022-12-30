@@ -12,10 +12,10 @@ $("#data-tab").click(() => {
     $("#iwa-panel").css("display", "none");
     $("#report-panel").css("display", "none");
     // Tab appearance
-    $("#data-tab").addClass("tab-active");
-    $("#event-tab").removeClass("tab-active");
-    $("#iwa-tab").removeClass("tab-active");
-    $("#report-tab").removeClass("tab-active");
+    $("#data-tab").addClass("active");
+    $("#event-tab").removeClass("active");
+    $("#iwa-tab").removeClass("active");
+    $("#report-tab").removeClass("active");
 });
 
 $("#event-tab").click(() => {
@@ -24,10 +24,10 @@ $("#event-tab").click(() => {
     $("#iwa-panel").css("display", "none");
     $("#report-panel").css("display", "none");
     // Tab appearance
-    $("#data-tab").removeClass("tab-active");
-    $("#event-tab").addClass("tab-active");
-    $("#iwa-tab").removeClass("tab-active");
-    $("#report-tab").removeClass("tab-active");
+    $("#data-tab").removeClass("active");
+    $("#event-tab").addClass("active");
+    $("#iwa-tab").removeClass("active");
+    $("#report-tab").removeClass("active");
 });
 
 $("#iwa-tab").click(() => {
@@ -36,10 +36,10 @@ $("#iwa-tab").click(() => {
     $("#iwa-panel").css("display", "block");
     $("#report-panel").css("display", "none");
     // Tab appearance
-    $("#data-tab").removeClass("tab-active");
-    $("#event-tab").removeClass("tab-active");
-    $("#iwa-tab").addClass("tab-active");
-    $("#report-tab").removeClass("tab-active");
+    $("#data-tab").removeClass("active");
+    $("#event-tab").removeClass("active");
+    $("#iwa-tab").addClass("active");
+    $("#report-tab").removeClass("active");
 });
 
 $("#report-tab").click(() => {
@@ -48,8 +48,8 @@ $("#report-tab").click(() => {
     $("#iwa-panel").css("display", "none");
     $("#report-panel").css("display", "block");
     // Tab appearance
-    $("#data-tab").removeClass("tab-active");
-    $("#event-tab").removeClass("tab-active");
-    $("#iwa-tab").removeClass("tab-active");
-    $("#report-tab").addClass("tab-active");
+    $("#data-tab").removeClass("active");
+    $("#event-tab").removeClass("active");
+    $("#iwa-tab").removeClass("active");
+    $("#report-tab").addClass("active");
 });
