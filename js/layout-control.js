@@ -5,6 +5,10 @@ $("#sidebar-btn").click(() => {
     $(".tabs").toggleClass("tabs_hide")
 });
 
+$(".tabs button").click((e) => {
+    console.log(e)
+});
+
 $("#data-tab").click(() => {
     // Panel visibility
     $("#data-panel").css("display", "block");
