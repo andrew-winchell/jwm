@@ -136,6 +136,12 @@ require([
         layers: [evtLyr]
     });
 
+    eventTemplate.on("select", (evtTemplate) => {
+        attributes = evtTemplate.template.prototype.attributes;
+        unselectFeature();
+        $("#viewDiv").style.cursor = "crosshair";
+    });
+
     const iwaForm = new FeatureForm({
         view: view,
         container: "iwa-panel",
