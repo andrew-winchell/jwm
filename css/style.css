@@ -52,14 +52,6 @@ html, body {
 .sidebar_small {
     width: 0%;
 }
-
-.nav-item {
-    transition: 1s ease;
-}
-
-.nav-item_hide {
-    transform: translate(-400%);
-}
   
 #sidebar-btn {
     position: absolute;
@@ -88,6 +80,10 @@ html, body {
     height: 100%;
     table-layout: fixed;
     border-collapse: collapse;
+}
+
+.tabs_hide {
+    transform: translateX(-100%);
 }
 
 .tabs button {
