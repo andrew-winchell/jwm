@@ -142,6 +142,14 @@ require([
         $("#viewDiv").style.cursor = "crosshair";
     });
 
+    // Remove the feature highlight and remove attributes
+    // from the feature form.
+    function unselectFeature() {
+      if (highlight) {
+        highlight.remove();
+      }
+    }
+
     const iwaForm = new FeatureForm({
         view: view,
         container: "iwa-panel",
