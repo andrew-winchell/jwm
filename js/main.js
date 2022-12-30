@@ -58,7 +58,12 @@ require([
     const evtLyr = new FeatureLayer({
         url: "https://services3.arcgis.com/geBQ3ULfATqBs2UF/arcgis/rest/services/jcat_weather_event/FeatureServer/0",
         outFields: ["*"],
-        id: "Weather Events"
+        id: "Weather Event"
+    });
+    const iwaLyr = new FeatureLayer({
+        url: "https://services3.arcgis.com/geBQ3ULfATqBs2UF/arcgis/rest/services/IWA/FeatureServer/0",
+        outFields: ["*"],
+        id: "IWA"
     });
     
     // Construct a new web scene using satellite imagery and elevation layer
@@ -95,7 +100,7 @@ require([
         });
     });
 
-    const featureForm = new FeatureForm({
+    const eventForm = new FeatureForm({
         view: view,
         container: "event-panel",
         layer: evtLyr,
@@ -126,9 +131,30 @@ require([
         }
     });
 
-    const templates = new FeatureTemplates({
+    const eventTemplate = new FeatureTemplates({
         container: "event-panel",
         layers: [evtLyr]
+    });
+
+    const iwaForm = new FeatureForm({
+        view: view,
+        container: "iwa-panel",
+        layer: iwaLyr,
+        formTemplate: {
+            title: "Enter IWA Information",
+            elements: [
+                {
+                    type: "field",
+                    fieldName: "parent_event",
+                    label: "Related Weather Event"
+                }
+            ]
+        }
+    });
+
+    const iwaTemplate = new FeatureTemplates({
+        container: "iwa-panel",
+        layers: [iwaLyr]
     });
 
 
