@@ -6,7 +6,17 @@ $("#sidebar-btn").click(() => {
 });
 
 $(".tabs button").click((e) => {
-    console.log(e)
+    let arr = ["#data-panel", "#event-panel", "#iwa-panel", "#report-panel"];
+    let category = e.target.id.split("_")[0];
+    let panel = "#" + category + "-panel";
+    let index = arr.indexOf(panel);
+    arr.splice(index, 1);
+
+    for(let a in arr) {
+        console.log(a);
+        $(a).css("display", "none");
+    };
+    
 });
 
 $("#data-tab").click(() => {
