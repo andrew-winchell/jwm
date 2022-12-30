@@ -12,7 +12,7 @@ $(".tabs button").click((e) => {
     let index = arr.indexOf(panel);
     arr.splice(index, 1);
 
-    for(let a in arr) {
+    for(let a of arr) {
         console.log(a);
         $(a).css("display", "none");
     };
