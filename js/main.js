@@ -139,8 +139,7 @@ require([
     eventTemplate.on("select", (evtTemplate) => {
         attributes = evtTemplate.template.prototype.attributes;
         unselectFeature();
-        console.log($("#viewDiv").style, document.getElementById("viewDiv").style)
-        //$("#viewDiv").style.cursor = "crosshair";
+        $("#viewDiv").css("cursor", "crosshair");
     });
 
     let editFeature, highlight;
