@@ -10,6 +10,7 @@ $(".tabs button").click((e) => {
     let category = e.target.id.split("_")[0];
     let panel = "#" + category + "-panel";
     let index = arr.indexOf(panel);
+    console.log(category, panel, index);
     arr.splice(index, 1);
 
     $(panel).css("display", "block");
