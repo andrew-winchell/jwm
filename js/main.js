@@ -157,8 +157,6 @@ require([
         layers: [iwaLyr]
     });
 
-
-
     // Search widget - add to navbar
     const searchWidget = new Search({
         container: "searchWidgetDiv",
