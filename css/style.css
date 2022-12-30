@@ -92,6 +92,10 @@ html, body {
     background-color: white;
 }
 
+.tab {
+    border: 1px solid transparent;
+}
+
 .tabs button:hover {
     border: 1px dashed rgb(181, 222, 247);
 }
