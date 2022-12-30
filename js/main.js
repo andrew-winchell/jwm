@@ -53,11 +53,16 @@ require([
     const fireBndryLyr = new FeatureLayer({
         url: "https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/USA_Wildfires_v1/FeatureServer/1",
     });
+    const evtLyr = new FeatureLayer({
+        url: "https://services3.arcgis.com/geBQ3ULfATqBs2UF/arcgis/rest/services/jcat_weather_event/FeatureServer/0",
+    });
+
+    
     
     // Construct a new web scene using satellite imagery and elevation layer
     const map = new Map({
         basemap: "streets-vector",
-        layers: [ethqkePntLyr, fireBndryLyr, firePntLyr]
+        layers: [ethqkePntLyr, fireBndryLyr, firePntLyr, evtLyr]
     });
 
     const view = new MapView({
