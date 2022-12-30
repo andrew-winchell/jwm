@@ -7,6 +7,7 @@ $("#sidebar-btn").click(() => {
 
 $(".tabs button").click((e) => {
     let arr = ["#data-panel", "#event-panel", "#iwa-panel", "#report-panel"];
+    console.log(e.target.id, e.target.id.split("_"))
     let category = e.target.id.split("_")[0];
     let panel = "#" + category + "-panel";
     let index = arr.indexOf(panel);
