@@ -19,6 +19,7 @@ $("#data-tab").click(() => {
 });
 
 $("#event-tab").click(() => {
+    // Panel visibility
     $("#data-panel").css("display", "none");
     $("#event-panel").css("display", "block");
     $("#iwa-panel").css("display", "none");
@@ -31,6 +32,7 @@ $("#event-tab").click(() => {
 });
 
 $("#iwa-tab").click(() => {
+    // Panel visibility
     $("#data-panel").css("display", "none");
     $("#event-panel").css("display", "none");
     $("#iwa-panel").css("display", "block");
@@ -43,6 +45,7 @@ $("#iwa-tab").click(() => {
 });
 
 $("#report-tab").click(() => {
+    // Panel visibility
     $("#home-panel").css("display", "none");
     $("#event-panel").css("display", "none");
     $("#iwa-panel").css("display", "none");
