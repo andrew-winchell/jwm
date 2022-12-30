@@ -57,6 +57,8 @@ require([
     });
     const evtLyr = new FeatureLayer({
         url: "https://services3.arcgis.com/geBQ3ULfATqBs2UF/arcgis/rest/services/jcat_weather_event/FeatureServer/0",
+        outFields: ["*"],
+        id: "Weather Events"
     });
     
     // Construct a new web scene using satellite imagery and elevation layer
