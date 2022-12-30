@@ -141,6 +141,8 @@ require([
         unselectFeature();
         $("#viewDiv").style.cursor = "crosshair";
     });
+    
+    let editFeature, highlight;
 
     // Remove the feature highlight and remove attributes
     // from the feature form.
