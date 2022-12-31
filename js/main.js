@@ -145,7 +145,7 @@ require([
     eventTemplate.on("select", (evtTemplate) => {
         let attributes = evtTemplate.template.prototype.attributes;
         console.log(attributes);
-        //unselectFeature();
+        unselectFeature();
         $("#viewDiv").css("cursor", "crosshair");
         
         const handler = view.on("click", (e) => {
@@ -167,10 +167,42 @@ require([
                         weather_type: attributes.weather_type,
                         submitter: null
                     }
-                })
+                });
+
+                const addFeature = {
+                    addFeatures: [addFeature]
+                };
+                applyEditsToIncidents(addFeature);
+                $("#viewDiv").css("cursor", "auto");
             }
         })
     })
+
+    // Call FeatureLayer.applyEdits() with specified params.
+    function applyEditsToIncidents(params) {
+      evtLayer
+        .applyEdits(params)
+        .then((editsResult) => {
+          // Get the objectId of the newly added feature.
+          // Call selectFeature function to highlight the new feature.
+          if (
+            editsResult.addFeatureResults.length > 0 ||
+            editsResult.updateFeatureResults.length > 0
+          ) {
+            unselectFeature();
+            let objectId;
+            if (editsResult.addFeatureResults.length > 0) {
+              objectId = editsResult.addFeatureResults[0].objectId;
+            } else {
+              eventForm.feature = null;
+              objectId = editsResult.updateFeatureResults[0].objectId;
+            }
+          }
+        })
+        .catch((error) => {
+          console.log("error = ", error);
+        });
+    }
 
     // Remove the feature highlight and remove attributes
     // from the feature form.
