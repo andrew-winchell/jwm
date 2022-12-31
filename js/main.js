@@ -144,6 +144,7 @@ require([
 
     eventTemplate.on("select", (evtTemplate) => {
         let attributes = evtTemplate.template.prototype.attributes;
+        console.log(attributes);
         //unselectFeature();
         $("#viewDiv").css("cursor", "crosshair");
         
@@ -160,7 +161,10 @@ require([
                 editFeature = new Graphic({
                     geometry: point,
                     attributes: {
-                        weather_type: attributes.weather_type
+                        event_name: null,
+                        occurrence: null,
+                        weather_type: attributes.weather_type,
+                        submitter: null
                     }
                 })
             }
