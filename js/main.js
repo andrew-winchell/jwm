@@ -103,12 +103,13 @@ require([
         });
     });
 
-    let editFeature, highlight;
+    let editFeature, highlight, evtGraphic;
 
     const eventForm = new FeatureForm({
         view: view,
         container: "event-panel",
         layer: evtLyr,
+        feature: evtGraphic,
         formTemplate: {
             title: "Enter Weather Event Information",
             elements: [
@@ -136,85 +137,10 @@ require([
         }
     });
 
-    eventForm.on("submit", () => {
-        if(editFeature) {
-            const updated = eventForm.getValues();
-            Object.keys(updated).forEach((name) => {
-                editFeature.attributes[name] = updated[name];
-            });
-
-            const edits = {
-                updatedFeatures: [editFeature]
-            };
-            applyEditsToIncidents(edits);
-            $("viewDiv").css("cursor", "auto");
-        }
-    });
-
     const eventTemplate = new FeatureTemplates({
         container: "event-panel",
         layers: [evtLyr]
     });
-
-    eventTemplate.on("select", (evtTemplate) => {
-        attributes = evtTemplate.template.prototype.attributes;
-        unselectFeature();
-        $("#viewDiv").css("cursor", "crosshair");
-
-        // With the selected template item, listen for the view's click event and create feature
-        const handler = view.on("click", (e) => {
-          // remove click event handler once user clicks on the view
-          // to create a new feature
-          handler.remove();
-          e.stopPropagation();
-          eventForm.feature = null;
-
-          if (e.mapPoint) {
-            point = e.mapPoint.clone();
-            point.z = undefined;
-            point.hasZ = false;
-
-            // Create a new feature using one of the selected
-            // template items.
-            editFeature = new Graphic({
-              geometry: point,
-              attributes: {
-                EventType: attributes.event_type
-              }
-            });
-
-            // Setup the applyEdits parameter with adds.
-            const edits = {
-              addFeatures: [editFeature]
-            };
-            applyEditsToEvents(edits);
-            $("#viewDiv").css("cursor", "auto");
-          } else {
-            console.error("event.mapPoint is not defined");
-          }
-        });
-    });
-
-    function applyEditsToEvents(params) {
-        evtLyr
-            .applyEdits(params)
-            .then((editsResult) => {
-                if (
-                    editsResult.addFeatureResults.length > 0 ||
-                    editsResult.updateFeatureResults.length > 0
-                ) {
-                    unselectFeature();
-                    let objectId;
-                    if (editsResult.addFeatureResults.length > 0) {
-                        objectId = editsResult.addFeatureResults[0].objectId;
-                    } else {
-                        eventForm.feature = null;
-                        objectId = editsResult.updateFeatureResults[0].objectId;
-                    }
-                    selectEventFeature(objectId);
-                }
-            })
-    }
 
     // Remove the feature highlight and remove attributes
     // from the feature form.
