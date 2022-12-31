@@ -160,7 +160,7 @@ require([
                 editFeature = new Graphic({
                     geometry: point,
                     attributes: {
-                        weather_type: attributes.weather_type;
+                        weather_type: attributes.weather_type
                     }
                 })
             }
