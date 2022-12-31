@@ -159,7 +159,7 @@ require([
                 point.hasZ = false;
 
                 console.log(attributes.weather_type)
-                editFeature = new Graphic({
+                addFeature = new Graphic({
                     geometry: point,
                     attributes: {
                         event_name: null,
@@ -169,10 +169,10 @@ require([
                     }
                 });
 
-                const addFeature = {
+                const adds = {
                     addFeatures: [addFeature]
                 };
-                applyEditsToIncidents(addFeature);
+                applyEditsToIncidents(adds);
                 $("#viewDiv").css("cursor", "auto");
             }
         })
