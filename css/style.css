@@ -123,3 +123,9 @@ html, body {
 #report-panel {
     background-color: springgreen;
 }
+
+/* replaces esri-widget--panel */
+.scroller {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
