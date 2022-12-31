@@ -145,7 +145,7 @@ require([
     eventTemplate.on("select", (evtTemplate) => {
         console.log(evtTemplate.template.prototype.attributes);
         $("#viewDiv").css("cursor", "crosshair");
-        eventForm.formTemplate.elements[2] = evtTemplate.template.prototype.attributes[0];
+        console.log(eventForm.formTemplate.elements[2])
     })
 
     // Remove the feature highlight and remove attributes
