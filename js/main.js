@@ -180,7 +180,7 @@ require([
 
     // Call FeatureLayer.applyEdits() with specified params.
     function applyEditsToIncidents(params) {
-      evtLayer
+      evtLyr
         .applyEdits(params)
         .then((editsResult) => {
           // Get the objectId of the newly added feature.
