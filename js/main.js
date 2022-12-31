@@ -142,6 +142,11 @@ require([
         layers: [evtLyr]
     });
 
+    eventTemplate.on("select", (evtTemplate) => {
+        console.log(evtTemplate.template.prototype.attributes);
+        $("#viewDiv").css("cursor", "crosshair");
+    })
+
     // Remove the feature highlight and remove attributes
     // from the feature form.
     function unselectFeature() {
