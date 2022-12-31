@@ -143,9 +143,28 @@ require([
     });
 
     eventTemplate.on("select", (evtTemplate) => {
-        console.log(evtTemplate.template.prototype.attributes);
+        let attributes = evtTemplate.template.prototype.attributes;
+        //unselectFeature();
         $("#viewDiv").css("cursor", "crosshair");
-        console.log(eventForm.formTemplate.elements)
+        
+        const handler = view.on("click", (e) => {
+            handler.remove();
+            e.stopPropagation();
+            eventForm.feature = null;
+
+            if (e.mapPoint) {
+                point = e.mapPoint.clone();
+                point.z = undefined;
+                point.hasZ = false;
+
+                editFeature = new Graphic({
+                    geometry: point,
+                    attributes: {
+                        weather_type: attributes.weather_type;
+                    }
+                })
+            }
+        })
     })
 
     // Remove the feature highlight and remove attributes
