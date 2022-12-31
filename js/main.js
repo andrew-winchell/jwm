@@ -6,6 +6,7 @@ require([
     "esri/Map",
     "esri/views/MapView",
     "esri/layers/FeatureLayer",
+    "esri/Graphic",
     
     // Widgets
     "esri/widgets/Home",
@@ -26,7 +27,9 @@ require([
 
     // Dojo
     "dojo/domReady!"
-], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Home, Search, LayerList, FeatureForm, FeatureTemplates, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport){
+], function(esriConfig, OAuthInfo, esriId, Map, MapView, FeatureLayer, Graphic, Home,
+    Search, LayerList, FeatureForm, FeatureTemplates, Collapse, Dropdown, CalciteMaps,
+    CalciteMapArcGISSupport){
 
     // OAuth certification process
     // Required to access secure content from AGOL
@@ -100,6 +103,8 @@ require([
         });
     });
 
+    let editFeature, highlight;
+
     const eventForm = new FeatureForm({
         view: view,
         container: "event-panel",
@@ -131,6 +136,21 @@ require([
         }
     });
 
+    eventForm.on("submit", () => {
+        if(editFeature) {
+            const updated = eventForm.getValues();
+            Object.keys(updated).forEach((name) => {
+                editFeature.attributes[name] = updated[name];
+            });
+
+            const edits = {
+                updatedFeatures: [editFeature]
+            };
+            applyEditsToIncidents(edits);
+            $("viewDiv").css("cursor", "auto");
+        }
+    });
+
     const eventTemplate = new FeatureTemplates({
         container: "event-panel",
         layers: [evtLyr]
@@ -140,9 +160,40 @@ require([
         attributes = evtTemplate.template.prototype.attributes;
         unselectFeature();
         $("#viewDiv").css("cursor", "crosshair");
-    });
 
-    let editFeature, highlight;
+        // With the selected template item, listen for the view's click event and create feature
+        const handler = view.on("click", (e) => {
+          // remove click event handler once user clicks on the view
+          // to create a new feature
+          handler.remove();
+          e.stopPropagation();
+          eventForm.feature = null;
+
+          if (e.mapPoint) {
+            point = e.mapPoint.clone();
+            point.z = undefined;
+            point.hasZ = false;
+
+            // Create a new feature using one of the selected
+            // template items.
+            editFeature = new Graphic({
+              geometry: point,
+              attributes: {
+                EventType: attributes.event_type
+              }
+            });
+
+            // Setup the applyEdits parameter with adds.
+            const edits = {
+              addFeatures: [editFeature]
+            };
+            applyEditsToIncidents(edits);
+            $("#viewDiv").css("cursor", "auto");
+          } else {
+            console.error("event.mapPoint is not defined");
+          }
+        });
+    });
 
     // Remove the feature highlight and remove attributes
     // from the feature form.
