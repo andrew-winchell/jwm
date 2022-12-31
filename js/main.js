@@ -170,7 +170,7 @@ require([
 
     const iwaForm = new FeatureForm({
         view: view,
-        container: "iwa-panel",
+        container: "iwa-attributes",
         layer: iwaLyr,
         formTemplate: {
             title: "Enter IWA Information",
@@ -185,7 +185,7 @@ require([
     });
 
     const iwaTemplate = new FeatureTemplates({
-        container: "iwa-panel",
+        container: "iwa-placement",
         layers: [iwaLyr]
     });
 
