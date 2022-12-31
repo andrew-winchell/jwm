@@ -158,14 +158,11 @@ require([
                 point.z = undefined;
                 point.hasZ = false;
 
-                console.log(attributes.weather_type)
+                console.log(eventForm);
                 addFeature = new Graphic({
                     geometry: point,
                     attributes: {
-                        event_name: null,
-                        occurrence: null,
                         weather_type: attributes.weather_type,
-                        submitter: null
                     }
                 });
 
