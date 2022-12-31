@@ -187,7 +187,7 @@ require([
             const edits = {
               addFeatures: [editFeature]
             };
-            applyEditsToIncidents(edits);
+            applyEditsToEvents(edits);
             $("#viewDiv").css("cursor", "auto");
           } else {
             console.error("event.mapPoint is not defined");
@@ -195,12 +195,51 @@ require([
         });
     });
 
+    function applyEditsToEvents(params) {
+        evtLyr
+            .applyEdits(params)
+            .then((editsResult) => {
+                if (
+                    editsResult.addFeatureResults.length > 0 ||
+                    editsResult.updateFeatureResults.length > 0
+                ) {
+                    unselectFeature();
+                    let objectId;
+                    if (editsResult.addFeatureResults.length > 0) {
+                        objectId = editsResult.addFeatureResults[0].objectId;
+                    } else {
+                        eventForm.feature = null;
+                        objectId = editsResult.updateFeatureResults[0].objectId;
+                    }
+                    selectEventFeature(objectId);
+                }
+            })
+    }
+
     // Remove the feature highlight and remove attributes
     // from the feature form.
     function unselectFeature() {
       if (highlight) {
         highlight.remove();
       }
+    }
+
+    function selectEventFeature(objectId) {
+        evtLyr
+            .queryFeatures({
+                objectIds: [objectId],
+                outFields: ["*"],
+                returnGeometry: true
+            })
+            .then((res) => {
+                if (res.features.length > 0) {
+                    editFeature = res.features[0];
+                    eventForm.feature = editFeature;
+                    view.whenLayerView(editFeature.layer).then((layerView) => {
+                        highlight = layerview.highlight(editFeature);
+                    });
+                }
+            });
     }
 
     const iwaForm = new FeatureForm({
