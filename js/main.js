@@ -158,6 +158,7 @@ require([
                 point.z = undefined;
                 point.hasZ = false;
 
+                console.log(attributes.weather_type)
                 editFeature = new Graphic({
                     geometry: point,
                     attributes: {
