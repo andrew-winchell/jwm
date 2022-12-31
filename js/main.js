@@ -121,7 +121,13 @@ require([
                 {
                     type: "field",
                     fieldName: "occurrence",
-                    label: "Date the event occurred"
+                    label: "Date the event occurred",
+                    input: {
+                        type: "datetime-picker",
+                            includeTime: true,
+                            min: 154767834200,
+                            max: 161083674200
+                    }
                 },
                 {
                     type: "field",
