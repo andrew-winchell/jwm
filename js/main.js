@@ -107,7 +107,7 @@ require([
 
     const eventForm = new FeatureForm({
         view: view,
-        container: "event-panel",
+        container: "event-attributes",
         layer: evtLyr,
         feature: evtGraphic,
         formTemplate: {
@@ -138,7 +138,7 @@ require([
     });
 
     const eventTemplate = new FeatureTemplates({
-        container: "event-panel",
+        container: "event-placement",
         layers: [evtLyr]
     });
 
