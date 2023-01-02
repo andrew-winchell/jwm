@@ -107,7 +107,7 @@ require([
     function populateEventsDropdown(layer) {
         $("#weather-dropdown calcite-option:not(:first)").remove();
         let query = layer.createQuery();
-        query.where = "1 = 1";
+        query.where = "1=1";
         query.outFields = ["event_name"];
         layer.queryFeatures(query)
             .then((response) => {
