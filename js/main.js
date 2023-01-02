@@ -96,7 +96,6 @@ require([
 
     // Wait for view to finish loading
     view.when(() => {
-        populateEventsDropdown(evtLyr);
         // Esri layers list widget
         const layerList = new LayerList({
             container: "sb-layers",
