@@ -112,8 +112,14 @@ require([
         layer.queryFeatures(query)
             .then((response) => {
                 for(let feature of response.features) {
-                    console.log(feature.attributes.event_name);
+                    $("#weather-default").after(
+                        '<calcite-option>' + feature.attributes.event_name + '</calcite-option>'
+                    );
                 };
+
+                $("#weather-default").after(
+                    '<calcite-option>New Event</calcite-option>'
+                );
             });
     }
 
