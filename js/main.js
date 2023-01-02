@@ -96,6 +96,7 @@ require([
 
     // Wait for view to finish loading
     view.when(() => {
+        populateEventsDropdown(evtLyr);
         // Esri layers list widget
         const layerList = new LayerList({
             container: "sb-layers",
@@ -103,8 +104,17 @@ require([
         });
     });
 
-    function populateEventsDropdown() {
+    function populateEventsDropdown(layer) {
         $("#weather-dropdown calcite-option:not(:first)").remove();
+        let query = layer.createQuery();
+        query.where = "1 = 1";
+        query.outFields = ["event_name"];
+        layer.queryFeatures(query)
+            .then((response) => {
+                for(let feature in response) {
+                    console.log(feature.event_name)
+                };
+            });
     }
 
 
@@ -125,7 +135,7 @@ require([
                 {
                     type: "field",
                     fieldName: "event_name",
-                    label: "Enter the name of the weather event or system"
+                    label: "Enter the name of the weather system"
                 },
                 {
                     type: "field",
