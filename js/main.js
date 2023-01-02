@@ -112,7 +112,7 @@ require([
         layer.queryFeatures(query)
             .then((response) => {
                 console.log(response)
-                for(let feature in response.features) {
+                for(let feature of response.features) {
                     console.log(feature);
                 };
             });
