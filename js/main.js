@@ -123,6 +123,21 @@ require([
             });
     }
 
+    // Listen for the selection on the weather event dropdown
+    $("#weather-dropdown").on("calciteSelectChange", (e) => {
+        // Call the populateEventsDropdown function
+        populateEventsDropdown(evtLyr);
+        // Send the selected weather event to the eventSelected function
+        eventSelected(e.target.value);
+    })
+
+    function eventSelected(selection) {
+        // New Event will prompt user to place a new weather event on the map
+        if (selection == "New Event") {
+            $("#event-placement").css("display", "block");
+        }
+    }
+
 
 
 
