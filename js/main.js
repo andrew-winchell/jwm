@@ -111,9 +111,8 @@ require([
         query.outFields = ["event_name"];
         layer.queryFeatures(query)
             .then((response) => {
-                console.log(response)
                 for(let feature of response.features) {
-                    console.log(feature);
+                    console.log(feature.attribute.event_name);
                 };
             });
     }
