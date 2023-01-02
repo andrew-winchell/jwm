@@ -108,38 +108,6 @@ require([
     }
 
 
-//When called, populates the dropdown with default values and existing values from database
-function populateDropdown(dropdown, event) {
-    //determine which dropdown to populate
-    if (dropdown == "event") {
-        //clear weather dropdown options except for the default
-        $("#weather-dropdown calcite-option:not(:first)").remove();
-
-        //query database for weather events
-        let e = [];
-        e.push({name: "tab_id", value: "1"})
-        $.ajax({
-            url: '/HttpServlet',
-            type: 'POST',
-            data: e,
-            success: (events) => {
-                let evt = events.reverse();
-                for (const e in evt) {
-                    $("#weather-default").after(
-                        '<calcite-option>' + evt[e] + '</calcite-option>'
-                    );
-                };
-
-                $("#weather-default").after(
-                    '<calcite-option>New Event</calcite-option>'
-                );
-            },
-            error: (xhr, status, error) => {
-                console.log("failure")
-                alert("Status: " + status + "\nError: " + error);
-            }
-        });
-
 
 
 
