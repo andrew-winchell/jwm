@@ -103,6 +103,17 @@ require([
         });
     });
 
+    function populateEventsDropdown() {
+        return 0;
+    }
+
+
+
+
+
+
+
+
     let editFeature, highlight, evtGraphic;
 
     const eventForm = new FeatureForm({
