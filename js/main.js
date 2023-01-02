@@ -113,7 +113,7 @@ require([
             .then((response) => {
                 console.log(response)
                 for(let feature in response.features) {
-                    console.log(feature.attributes.event_name);
+                    console.log(feature.attributes);
                 };
             });
     }
