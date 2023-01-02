@@ -112,7 +112,7 @@ require([
         layer.queryFeatures(query)
             .then((response) => {
                 for(let feature of response.features) {
-                    console.log(feature.attribute.event_name);
+                    console.log(feature.attributes.event_name);
                 };
             });
     }
