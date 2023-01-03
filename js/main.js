@@ -289,9 +289,6 @@ require([
                 if (res.features.length > 0) {
                     editFeature = res.features[0];
                     eventForm.feature = editFeature;
-                    view.whenLayerView(editFeature.layer).then((layerView) => {
-                        highlight = layerview.highlight(editFeature);
-                    });
                 }
             });
     }
