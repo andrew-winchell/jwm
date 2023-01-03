@@ -33,7 +33,7 @@ html, body {
 .sidebar-panel {
     width: 100%;
     height: calc(100% - 50px);
-    background-color: #54a;
+    background-color: #f3f3f3;
     transition: 1s ease;
     position: relative;
 }
@@ -106,22 +106,6 @@ html, body {
 
 .tab-icon {
     color: black;
-}
-
-#data-panel {
-    background-color: burlywood;
-}
-
-#event-panel {
-    background-color: aquamarine;
-}
-
-#iwa-panel {
-    background-color: thistle;
-}
-
-#report-panel {
-    background-color: springgreen;
 }
 
 .scroller {
