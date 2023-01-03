@@ -222,6 +222,25 @@ require([
         })
     })
 
+    eventForm.on("submit", () => {
+        if (editFeature) {
+            // Grad attributes from form
+            const updated = eventForm.getValues();
+
+            Object.keys(updated).forEach((name) => {
+                editFeature.attributes[name] = updated[name];
+            });
+
+            // Setup the applyEdits parameter with updates
+            const edits = {
+                updateFeatures: [editFeature];
+            };
+
+            applyEditsToEvents(edits);
+            $("#viewDiv").css("cursor", "auto");
+        }
+    });
+
     // Call FeatureLayer.applyEdits() with specified params.
     function applyEditsToEvents(params) {
       evtLyr
