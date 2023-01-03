@@ -198,7 +198,7 @@ require([
         const handler = view.on("click", (e) => {
             handler.remove();
             e.stopPropagation();
-            console.log(eventForm)
+            console.log(eventForm.getValues())
             eventForm.feature = null;
 
             if (e.mapPoint) {
