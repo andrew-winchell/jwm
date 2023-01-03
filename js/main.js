@@ -133,6 +133,7 @@ require([
     })
 
     function eventSelected(selection) {
+        console.log(selection);
         // Default weather option
         if (selection == "Select Weather Event") {
             $("#event-placement").css("display", "none");
