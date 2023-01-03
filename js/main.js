@@ -233,7 +233,7 @@ require([
 
             // Setup the applyEdits parameter with updates
             const edits = {
-                updateFeatures: [editFeature];
+                updateFeatures: [editFeature]
             };
 
             applyEditsToEvents(edits);
