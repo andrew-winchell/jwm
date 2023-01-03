@@ -150,11 +150,6 @@ require([
         };
     }
 
-
-
-
-
-
     let editFeature, highlight, evtGraphic;
 
     const eventForm = new FeatureForm({
