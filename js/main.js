@@ -142,7 +142,7 @@ require([
         // New Event will prompt user to place a new weather event on the map
         else if (selection == "New Event") {
             $("#event-placement").css("display", "block");
-            $("#event-attributes").css("display", "none");
+            $("#event-attributes").css("display", "block");
         }
         // An existing weather event has been selected
         else {
@@ -192,7 +192,6 @@ require([
 
     eventTemplate.on("select", (evtTemplate) => {
         let attributes = evtTemplate.template.prototype.attributes;
-        console.log(attributes);
         unselectFeature();
         $("#viewDiv").css("cursor", "crosshair");
         
