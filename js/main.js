@@ -198,14 +198,13 @@ require([
         const handler = view.on("click", (e) => {
             handler.remove();
             e.stopPropagation();
+            console.log(eventForm)
             eventForm.feature = null;
 
             if (e.mapPoint) {
                 point = e.mapPoint.clone();
                 point.z = undefined;
                 point.hasZ = false;
-
-                console.log(eventForm.getValues())
 
                 addFeature = new Graphic({
                     geometry: point,
