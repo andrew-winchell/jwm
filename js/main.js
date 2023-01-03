@@ -143,6 +143,11 @@ require([
         else if (selection == "New Event") {
             $("#event-placement").css("display", "block");
         }
+        // An existing weather event has been selected
+        else {
+            $("#event-placement").css("display", "none");
+            $("#event-attributes").css("display", "block");
+        };
     }
 
 
