@@ -142,6 +142,7 @@ require([
         // New Event will prompt user to place a new weather event on the map
         else if (selection == "New Event") {
             $("#event-placement").css("display", "block");
+            $("#event-attributes").css("display", "none");
         }
         // An existing weather event has been selected
         else {
