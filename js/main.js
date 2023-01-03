@@ -206,6 +206,8 @@ require([
                 point.z = undefined;
                 point.hasZ = false;
 
+                console.log(eventForm.getValues())
+
                 addFeature = new Graphic({
                     geometry: point,
                     attributes: {
