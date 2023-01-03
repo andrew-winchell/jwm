@@ -110,6 +110,7 @@ require([
         query.outFields = ["event_name"];
         layer.queryFeatures(query)
             .then((response) => {
+                //let sortFeatures = response.features.reverse();
                 for(let feature of response.features) {
                     $("#weather-default").after(
                         '<calcite-option>' + feature.attributes.event_name + '</calcite-option>'
@@ -125,7 +126,9 @@ require([
     // Listen for the selection on the weather event dropdown
     $("#weather-dropdown").on("calciteSelectChange", (e) => {
         // Call the populateEventsDropdown function
-        populateEventsDropdown(evtLyr);
+        view.when(() => {
+            populateEventsDropdown(evtLyr);
+        })
         // Send the selected weather event to the eventSelected function
         eventSelected(e.target.value);
     })
