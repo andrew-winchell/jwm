@@ -206,7 +206,6 @@ require([
                 point.z = undefined;
                 point.hasZ = false;
 
-                console.log(eventForm);
                 addFeature = new Graphic({
                     geometry: point,
                     attributes: {
@@ -217,14 +216,14 @@ require([
                 const adds = {
                     addFeatures: [addFeature]
                 };
-                applyEditsToIncidents(adds);
+                applyEditsToEvents(adds);
                 $("#viewDiv").css("cursor", "auto");
             }
         })
     })
 
     // Call FeatureLayer.applyEdits() with specified params.
-    function applyEditsToIncidents(params) {
+    function applyEditsToEvents(params) {
       evtLyr
         .applyEdits(params)
         .then((editsResult) => {
@@ -242,6 +241,9 @@ require([
               eventForm.feature = null;
               objectId = editsResult.updateFeatureResults[0].objectId;
             }
+            selectEventFeature(objectId);
+            $("#event-attributes").css("display", "block");
+            $("#event-placement").css("display", "none");
           }
         })
         .catch((error) => {
