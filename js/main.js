@@ -133,8 +133,14 @@ require([
     })
 
     function eventSelected(selection) {
+        // Default weather option
+        if (selection == "Select Weather Event") {
+            $("#event-placement").css("display", "none");
+            $("#event-attributes").css("display", "none");
+            $("#createEvtBtn").css("display", "none");
+        }
         // New Event will prompt user to place a new weather event on the map
-        if (selection == "New Event") {
+        else if (selection == "New Event") {
             $("#event-placement").css("display", "block");
         }
     }

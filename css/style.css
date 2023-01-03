@@ -132,3 +132,11 @@ html, body {
 .event-widget {
     display: none;
 }
+
+#createEvtBtn {
+    display: none;
+}
+
+#createIWABtn {
+    display: none;
+}
