@@ -157,7 +157,7 @@ require([
         view: view,
         container: "event-attributes",
         layer: evtLyr,
-        feature: evtGraphic,
+        feature: evtGraphic/*,
         formTemplate: {
             title: "Enter Weather Event Information",
             elements: [
@@ -182,7 +182,7 @@ require([
                     label: "Enter your name"
                 },
             ]
-        }
+        }*/
     });
 
     const eventTemplate = new FeatureTemplates({
