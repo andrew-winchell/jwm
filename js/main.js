@@ -98,7 +98,7 @@ require([
     view.when(() => {
         // Call the populateEventsDropdown function
         populateEventsDropdown(evtLyr);
-        
+
         // Esri layers list widget
         const layerList = new LayerList({
             container: "sb-layers",
@@ -128,8 +128,6 @@ require([
 
     // Listen for the selection on the weather event dropdown
     $("#weather-dropdown").on("calciteSelectChange", (e) => {
-        // Call the populateEventsDropdown function
-        populateEventsDropdown(evtLyr);
         // Send the selected weather event to the eventSelected function
         eventSelected(e.target.value);
     })
