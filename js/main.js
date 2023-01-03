@@ -211,13 +211,21 @@ require([
                     geometry: point,
                     attributes: {
                         weather_type: attributes.weather_type,
+                    },
+                    symbol: {
+                        type: "picture-marker",
+                        url: "media/img/evt_marker.png",
+                        width: "20px",
+                        height: "20px"
                     }
                 });
+
+                view.graphics.add(addFeature);
 
                 const adds = {
                     addFeatures: [addFeature]
                 };
-                applyEditsToEvents(adds);
+                //applyEditsToEvents(adds);
                 $("#viewDiv").css("cursor", "auto");
             }
         })
