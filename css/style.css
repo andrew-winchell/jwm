@@ -136,3 +136,8 @@ html, body {
     display: inline;
     margin-bottom: 10px;
 }
+
+#event-placement {
+    padding: 5px;
+    background-color: #f3f3f3;
+}
