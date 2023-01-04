@@ -132,6 +132,17 @@ require([
         eventSelected(e.target.value);
     })
 
+    $("#createEvtBtn").on("click", () => {
+        let attributes = eventForm.getValues()
+        for (let a in attributes) {
+            if (a == null) {
+                alert(a + " is not filled out. Please return to form.");
+                return;
+            }
+        }
+        $("#event-placement").css("display", "block");
+    })
+
     function eventSelected(selection) {
         // Default weather option
         if (selection == "Select Weather Event") {
@@ -143,6 +154,7 @@ require([
         else if (selection == "New Event") {
             $("#event-attributes").css("display", "block");
             $("#event-placement").css("display", "none");
+            $("#createEvtBtn").css("display", "block");
         }
         // An existing weather event has been selected
         else {
@@ -164,8 +176,7 @@ require([
                 {
                     type: "field",
                     fieldName: "event_name",
-                    label: "Enter the name of the weather system",
-                    required: true
+                    label: "Enter the name of the weather system"
                 },
                 {
                     type: "field",
