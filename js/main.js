@@ -142,7 +142,7 @@ require([
         // New Event will prompt user to place a new weather event on the map
         else if (selection == "New Event") {
             $("#event-attributes").css("display", "block");
-            $("#event-placement").css("display", "block");
+            $("#event-placement").css("display", "none");
         }
         // An existing weather event has been selected
         else {
@@ -164,7 +164,8 @@ require([
                 {
                     type: "field",
                     fieldName: "event_name",
-                    label: "Enter the name of the weather system"
+                    label: "Enter the name of the weather system",
+                    required: true
                 },
                 {
                     type: "field",
