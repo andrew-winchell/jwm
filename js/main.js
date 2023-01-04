@@ -192,6 +192,8 @@ require([
 
     eventTemplate.on("select", (evtTemplate) => {
         let attributes = evtTemplate.template.prototype.attributes;
+
+        // Get the corresponding array index for the unique values symbols
         let i;
         if (attributes.weather_type == "Earthquake") {
             i = 0;
@@ -218,7 +220,7 @@ require([
         const handler = view.on("click", (e) => {
             handler.remove();
             e.stopPropagation();
-            console.log(eventForm.getValues())
+            let formValues = eventForm.getValues()
             eventForm.feature = null;
 
             if (e.mapPoint) {
@@ -229,7 +231,10 @@ require([
                 addFeature = new Graphic({
                     geometry: point,
                     attributes: {
+                        event_name: formValues.event_name,
+                        occurrence: formValues.occurrence,
                         weather_type: attributes.weather_type,
+                        submitter: formValues.submitter
                     },
                     symbol: {
                         type: "picture-marker",
@@ -240,6 +245,7 @@ require([
                 });
 
                 view.graphics.add(addFeature);
+
 
                 const adds = {
                     addFeatures: [addFeature]
