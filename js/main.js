@@ -221,6 +221,7 @@ require([
             handler.remove();
             e.stopPropagation();
             let formValues = eventForm.getValues()
+            console.log(formValues)
             eventForm.feature = null;
 
             if (e.mapPoint) {
