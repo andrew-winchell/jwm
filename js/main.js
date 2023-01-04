@@ -133,7 +133,7 @@ require([
     })
 
     $("#createEvtBtn").on("click", () => {
-        let attributes = eventForm
+        let attributes = eventForm.getValues()
         console.log(attributes)
         for (let a in attributes) {
             if (a == null) {
