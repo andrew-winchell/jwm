@@ -134,7 +134,7 @@ require([
 
     $("#createEvtBtn").on("click", () => {
         let attributes = eventForm.getValues()
-        if (attributes.length() < 3) {
+        if (Object.keys(attributes).length < 3) {
             alert("Please fill empty fields in form");
             return;
         }
