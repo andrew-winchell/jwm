@@ -214,7 +214,7 @@ require([
                     },
                     symbol: {
                         type: "picture-marker",
-                        url: "media/img/evt_marker.png",
+                        url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAB5CAYAAAAd+o5JAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABA1JREFUeNrs3c9qE0EcB/CZX7VBW7G9SEUoRRSEXgy+gLl6kfgEPoInr22vnnwEfQF789q+QbwUBHsogljswRZTtdWqmf6Jpd00m2R3dn7f3/cHwxJ2hiX7yfyYnQk7zjHgw1v6sm+eu/udw3KnNJ+8cO+IjAm80ilTnbLdKQ0r0N4g8EmYgfZGgU1Be8PAZqDFGnDt8rmq4fzKcX0iawe+cd25B7ePjpagvSXgOzP/P69vOvdlx0bq9haBrUF7dOCAm5GeuxGQAzYytLcMbAXaWwe2AO0JjA/tCYwP7QmMD+0JjA/tCYwP7QmMD+0JjA/tEYEn64tuor4w8LV2W0uu3VqEgxb24HzRY/5bxeqVEBgfWgiMDy0ExocWAuNDC4HxoYXA+NBCYHxoITA+tBAYH1oIjA8tBMaHFgLjQwuB8aGFwPjQQmB8aCEwPrQQGB9aCIwPLQTGhxYC40MLgfGhhcD40EJgfGghMD60EBgfWgiMDy0ExocWAuNDC4HxoYXA+NBCYHxoITA+tBAYH1oIjA8tBMaHFgLjQwuB8aGFwPjQJz15+SzwzWkCa4IOXhnQy6eRm+7oxWPd2NpxbnePN1BDBKet7L00ml3k4zfKNU5D//7j3NpHQmsADk7B6wxw902B3YEXoTGBzz1CERoPOHMyhNBYwJnIhMYC7olMaBzgC5EJjQHcF5nQ+oFzIRNaN3BuZELrBR4ImdA6gQdGJrQ+4KGQCa0LeGhkQusBHgmZ0DqAR0YmdPrAhSATOm3gwpAJnS5wiML3asz6U+Clzk9pfta5iVqcmzc2OefGrs0N3O7g24Y7aG9AAZeCnAo0e3DJyIROB7hUZEKnAVw6MqGrB46CTOhqgaMhVwndb6Rd9oi6auCoyLGh/fiUm6wvuKvzz/rW/b720rVbS+7v/jYccHTkmNDTj1bc+MzD3PX3N1fd17cNOOAQ0Tf/ijEzduXu04GAQ4T6oR0acCXIMaBrs4+jtksZuDLksqF9bSpqu5SBK0WOlbqtPCYli4wCnTJwEsjaoVMHTgZZK7QG4KSQtUFrAU4OuSjoMFU5TORtpwk4SeQioH+uvx7qunnaaQNOFnlU6P3Pq4fz0YNEqB/aoQEfPv+n/ngyylx3mKacqC8crkT1TNHtDbfbWnI/PryCBFaBPCq0tUGWWuQqobUDq0KuAhoBWB1yTGgUYJXIMaCRgNUilwmNBqwauQxoRGD1yEVCowJDIBcBjQwMgzwKNDpwCEFB7jXX/f7TOUDX5zwUMBRyL+i9X5k9tbvYEc4jA0Ol636pO6TskLpDCu+xmgUJDIt8EfS9W0cp2gowNHIv6IyABoZHzgEND2wC+QJoE8BmkDOgzQCbQj4FHba2a1oBZhiJfwIMAP/pv0mALverAAAAAElFTkSuQmCC",
                         width: "20px",
                         height: "20px"
                     }
@@ -232,6 +232,7 @@ require([
         })
     })
 
+    /*
     eventForm.on("submit", () => {
         if (editFeature) {
             // Grad attributes from form
@@ -250,6 +251,7 @@ require([
             $("#viewDiv").css("cursor", "auto");
         }
     });
+    */
 
     // Call FeatureLayer.applyEdits() with specified params.
     function applyEditsToEvents(params) {
