@@ -135,14 +135,14 @@ require([
     function eventSelected(selection) {
         // Default weather option
         if (selection == "Select Weather Event") {
-            $("#event-placement").css("display", "none");
             $("#event-attributes").css("display", "none");
+            $("#event-placement").css("display", "none");
             $("#createEvtBtn").css("display", "none");
         }
         // New Event will prompt user to place a new weather event on the map
         else if (selection == "New Event") {
-            $("#event-placement").css("display", "block");
             $("#event-attributes").css("display", "block");
+            $("#event-placement").css("display", "block");
         }
         // An existing weather event has been selected
         else {
@@ -170,11 +170,6 @@ require([
                     type: "field",
                     fieldName: "occurrence",
                     label: "Date the event occurred",
-                },
-                {
-                    type: "field",
-                    fieldName: "weather_type",
-                    label: "Select the weather type"
                 },
                 {
                     type: "field",
