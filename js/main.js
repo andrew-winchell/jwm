@@ -257,7 +257,7 @@ require([
                     addFeatures: [addFeature]
                 };
 
-                //applyEditsToEvents(adds);
+                applyEditsToEvents(adds);
                 $("#viewDiv").css("cursor", "auto");
             }
         })
