@@ -254,9 +254,8 @@ require([
         query.outFields = ["event_name"];
         layer.queryFeatures(query)
             .then((response) => {
-                let sortFeatures = response.features.reverse();
                 // Create dropdown items for each event in the events layer
-                for(let feature of sortFeatures) {
+                for(let feature of response.features) {
                     $("#weather-default").after(
                         '<calcite-option>' + feature.attributes.event_name + '</calcite-option>'
                     );
