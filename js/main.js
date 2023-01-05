@@ -143,7 +143,7 @@ require([
         } else if (attributes.weather_type == "Other") {
             i = 7;
         }
-        let symbolUrl = evtTemplate.item.layer.renderer.uniqueValueInfos[i].symbol.url
+        let symbolUrl = evtTemplate.item.layer.renderer.uniqueValueInfos[i].symbol.url;
         
         unselectFeature();
         $("#viewDiv").css("cursor", "crosshair");
