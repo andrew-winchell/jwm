@@ -209,19 +209,24 @@ require([
     });
 
     function populateEventsDropdown(layer) {
+        // Clear the options from the events dropdown except for the default first option
         $("#weather-dropdown calcite-option:not(:first)").remove();
+
+        // Create a layer query on the events layer that returns everything
         let query = layer.createQuery();
         query.where = "1=1";
         query.outFields = ["event_name"];
         layer.queryFeatures(query)
             .then((response) => {
-                //let sortFeatures = response.features.reverse();
-                for(let feature of response.features) {
+                let sortFeatures = response.features.reverse();
+                // Create dropdown items for each event in the events layer
+                for(let feature of sortFeatures) {
                     $("#weather-default").after(
                         '<calcite-option>' + feature.attributes.event_name + '</calcite-option>'
                     );
                 };
 
+                // Add New Event option after the default option and before the existing events
                 $("#weather-default").after(
                     '<calcite-option>New Event</calcite-option>'
                 );
