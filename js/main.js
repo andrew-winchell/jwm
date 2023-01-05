@@ -248,6 +248,7 @@ require([
 
     // Populate the Weather Events dropdown list
     function populateEventsDropdown(layer) {
+        console.log("dropdown called");
         // Clear the options from the events dropdown except for the default first option
         $("#weather-dropdown calcite-option:not(:first)").remove();
 
