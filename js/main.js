@@ -334,27 +334,23 @@ require([
             });
     }
 
-    selectExistingEvent();
-
-    function selectExistingEvent() {
-        view.on("click", (event) => {
-            unselectFeature();
-            if ($("#viewDiv").css("cursor") == "auto") {
-                view.hitTest(event)
-                    .then((response) => {
-                        if (response.results.length == 0) {
-                            console.log("No Hit");
-                        } else if (
-                            response.results[0].graphic &&
-                            response.results[0].graphic.layer.id == "Weather Event"
-                        ) {
-                            console.log(response.results[0].graphic.attributes["OBJECTID"])
-                        }
-                    })
-            }
-        })
-    }
-
+    view.on("click", (event) => {
+        unselectFeature();
+        if ($("#viewDiv").css("cursor") == "auto") {
+            view.hitTest(event)
+                .then((response) => {
+                    if (response.results.length == 0) {
+                        console.log("No Hit");
+                    } else if (
+                        response.results[0].graphic &&
+                        response.results[0].graphic.layer.id == "Weather Event"
+                    ) {
+                        console.log(response.results[0].graphic.attributes["OBJECTID"])
+                    }
+                })
+        }
+    })
+    
     const iwaForm = new FeatureForm({
         view: view,
         container: "iwa-attributes",
