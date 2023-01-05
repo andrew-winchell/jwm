@@ -142,7 +142,9 @@ require([
         });
     });
 
-    $("#weather-dropdown").on("click", populateEventsDropdown(evtLyr))
+    $("#weather-dropdown").on("click", () => {
+        populateEventsDropdown(evtLyr)
+    });
 
     $("#createEvtBtn").on("click", () => {
         let attributes = eventForm.getValues()
