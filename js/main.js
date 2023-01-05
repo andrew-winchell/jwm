@@ -94,6 +94,42 @@ require([
         index: 0
     });
 
+    let editFeature, highlight, evtGraphic;
+
+    // Weather events feature editing form
+    const eventForm = new FeatureForm({
+        view: view,
+        container: "event-attributes",
+        layer: evtLyr,
+        feature: evtGraphic,
+        formTemplate: {
+            title: "Enter Weather Event Information",
+            elements: [
+                {
+                    type: "field",
+                    fieldName: "event_name",
+                    label: "Enter the name of the weather system"
+                },
+                {
+                    type: "field",
+                    fieldName: "occurrence",
+                    label: "Date the event occurred",
+                },
+                {
+                    type: "field",
+                    fieldName: "submitter",
+                    label: "Enter your name"
+                },
+            ]
+        }
+    });
+
+    // Weather event feature creation template
+    const eventTemplate = new FeatureTemplates({
+        container: "event-placement",
+        layers: [evtLyr]
+    });
+
     // Wait for view to finish loading
     view.when(() => {
         // Call the populateEventsDropdown function
@@ -252,40 +288,6 @@ require([
             $("#event-attributes").css("display", "block");
         };
     }
-
-    let editFeature, highlight, evtGraphic;
-
-    const eventForm = new FeatureForm({
-        view: view,
-        container: "event-attributes",
-        layer: evtLyr,
-        feature: evtGraphic,
-        formTemplate: {
-            title: "Enter Weather Event Information",
-            elements: [
-                {
-                    type: "field",
-                    fieldName: "event_name",
-                    label: "Enter the name of the weather system"
-                },
-                {
-                    type: "field",
-                    fieldName: "occurrence",
-                    label: "Date the event occurred",
-                },
-                {
-                    type: "field",
-                    fieldName: "submitter",
-                    label: "Enter your name"
-                },
-            ]
-        }
-    });
-
-    const eventTemplate = new FeatureTemplates({
-        container: "event-placement",
-        layers: [evtLyr]
-    });
 
     // Call FeatureLayer.applyEdits() with specified params.
     function applyEditsToEvents(params) {
