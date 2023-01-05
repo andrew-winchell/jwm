@@ -342,17 +342,13 @@ require([
             if ($("#viewDiv").css("cursor") == "auto") {
                 view.hitTest(event)
                     .then((response) => {
-                        if (response.results.length === 0) {
+                        if (response.results.length == 0) {
                             console.log("No Hit");
                         } else if (
                             response.results[0].graphic &&
                             response.results[0].graphic.layer.id == "Weather Event"
                         ) {
-                            selectEventFeature(
-                                response.results[0].graphic.attributes[
-                                    evtLyr.objectId
-                                ]
-                            )
+                            console.log("HIT")
                         }
                     })
             }
