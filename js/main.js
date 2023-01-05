@@ -133,7 +133,7 @@ require([
     // Wait for view to finish loading
     view.when(() => {
         // Call the populateEventsDropdown function
-        populateEventsDropdown(evtLyr);
+        //populateEventsDropdown(evtLyr);
 
         // Esri layers list widget
         const layerList = new LayerList({
@@ -141,6 +141,8 @@ require([
             view: view
         });
     });
+
+    $("#weather-dropdown").on("click", populateEventsDropdown(evtLyr))
 
     $("#createEvtBtn").on("click", () => {
         let attributes = eventForm.getValues()
