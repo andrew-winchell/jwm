@@ -115,84 +115,10 @@ require([
         $("#event-placement").css("display", "block");
     });
 
-    function populateEventsDropdown(layer) {
-        $("#weather-dropdown calcite-option:not(:first)").remove();
-        let query = layer.createQuery();
-        query.where = "1=1";
-        query.outFields = ["event_name"];
-        layer.queryFeatures(query)
-            .then((response) => {
-                //let sortFeatures = response.features.reverse();
-                for(let feature of response.features) {
-                    $("#weather-default").after(
-                        '<calcite-option>' + feature.attributes.event_name + '</calcite-option>'
-                    );
-                };
-
-                $("#weather-default").after(
-                    '<calcite-option>New Event</calcite-option>'
-                );
-            });
-    }
-
     // Listen for the selection on the weather event dropdown
     $("#weather-dropdown").on("calciteSelectChange", (e) => {
         // Send the selected weather event to the eventSelected function
         eventSelected(e.target.value);
-    })
-
-    function eventSelected(selection) {
-        // Default weather option
-        if (selection == "Select Weather Event") {
-            $("#event-attributes").css("display", "none");
-            $("#event-placement").css("display", "none");
-            $("#createEvtBtn").css("display", "none");
-        }
-        // New Event will prompt user to place a new weather event on the map
-        else if (selection == "New Event") {
-            $("#event-attributes").css("display", "block");
-            $("#event-placement").css("display", "none");
-            $("#createEvtBtn").css("display", "block");
-        }
-        // An existing weather event has been selected
-        else {
-            $("#event-placement").css("display", "none");
-            $("#event-attributes").css("display", "block");
-        };
-    }
-
-    let editFeature, highlight, evtGraphic;
-
-    const eventForm = new FeatureForm({
-        view: view,
-        container: "event-attributes",
-        layer: evtLyr,
-        feature: evtGraphic,
-        formTemplate: {
-            title: "Enter Weather Event Information",
-            elements: [
-                {
-                    type: "field",
-                    fieldName: "event_name",
-                    label: "Enter the name of the weather system"
-                },
-                {
-                    type: "field",
-                    fieldName: "occurrence",
-                    label: "Date the event occurred",
-                },
-                {
-                    type: "field",
-                    fieldName: "submitter",
-                    label: "Enter your name"
-                },
-            ]
-        }
-    });
-
-    const eventTemplate = new FeatureTemplates({
-        container: "event-placement",
-        layers: [evtLyr]
     });
 
     eventTemplate.on("select", (evtTemplate) => {
@@ -260,8 +186,8 @@ require([
                 applyEditsToEvents(adds);
                 $("#viewDiv").css("cursor", "auto");
             }
-        })
-    })
+        });
+    });
 
     eventForm.on("submit", () => {
         if (editFeature) {
@@ -280,6 +206,80 @@ require([
             applyEditsToEvents(edits);
             $("#viewDiv").css("cursor", "auto");
         }
+    });
+
+    function populateEventsDropdown(layer) {
+        $("#weather-dropdown calcite-option:not(:first)").remove();
+        let query = layer.createQuery();
+        query.where = "1=1";
+        query.outFields = ["event_name"];
+        layer.queryFeatures(query)
+            .then((response) => {
+                //let sortFeatures = response.features.reverse();
+                for(let feature of response.features) {
+                    $("#weather-default").after(
+                        '<calcite-option>' + feature.attributes.event_name + '</calcite-option>'
+                    );
+                };
+
+                $("#weather-default").after(
+                    '<calcite-option>New Event</calcite-option>'
+                );
+            });
+    }
+
+    function eventSelected(selection) {
+        // Default weather option
+        if (selection == "Select Weather Event") {
+            $("#event-attributes").css("display", "none");
+            $("#event-placement").css("display", "none");
+            $("#createEvtBtn").css("display", "none");
+        }
+        // New Event will prompt user to place a new weather event on the map
+        else if (selection == "New Event") {
+            $("#event-attributes").css("display", "block");
+            $("#event-placement").css("display", "none");
+            $("#createEvtBtn").css("display", "block");
+        }
+        // An existing weather event has been selected
+        else {
+            $("#event-placement").css("display", "none");
+            $("#event-attributes").css("display", "block");
+        };
+    }
+
+    let editFeature, highlight, evtGraphic;
+
+    const eventForm = new FeatureForm({
+        view: view,
+        container: "event-attributes",
+        layer: evtLyr,
+        feature: evtGraphic,
+        formTemplate: {
+            title: "Enter Weather Event Information",
+            elements: [
+                {
+                    type: "field",
+                    fieldName: "event_name",
+                    label: "Enter the name of the weather system"
+                },
+                {
+                    type: "field",
+                    fieldName: "occurrence",
+                    label: "Date the event occurred",
+                },
+                {
+                    type: "field",
+                    fieldName: "submitter",
+                    label: "Enter your name"
+                },
+            ]
+        }
+    });
+
+    const eventTemplate = new FeatureTemplates({
+        container: "event-placement",
+        layers: [evtLyr]
     });
 
     // Call FeatureLayer.applyEdits() with specified params.
