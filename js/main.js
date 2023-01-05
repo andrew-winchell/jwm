@@ -245,7 +245,7 @@ require([
             $("#viewDiv").css("cursor", "auto");
         }
     });
-
+/*
     // Populate the Weather Events dropdown list
     function populateEventsDropdown(layer) {
         console.log("dropdown called");
@@ -271,7 +271,7 @@ require([
                 );
             });
     }
-
+*/
     function eventSelected(selection) {
         // Default weather option
         if (selection == "Select Weather Event") {
