@@ -142,7 +142,7 @@ require([
         });
     });
 
-    $("#weather-dropdown").addEventListener("calciteDropdownBeforeOpen", () => {
+    $("#weather-dropdown").on("calciteDropdownBeforeOpen", () => {
         populateEventsDropdown(evtLyr)
     })
 
