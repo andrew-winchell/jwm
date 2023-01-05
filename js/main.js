@@ -244,13 +244,14 @@ require([
         }
     });
 
+    // Populate the Weather Events dropdown list
     function populateEventsDropdown(layer) {
         // Clear the options from the events dropdown except for the default first option
         $("#weather-dropdown calcite-option:not(:first)").remove();
 
         // Create a layer query on the events layer that returns everything
         let query = layer.createQuery();
-        query.where = "1=1";
+        query.where = "1=1"; //change to all open events
         query.outFields = ["event_name"];
         layer.queryFeatures(query)
             .then((response) => {
