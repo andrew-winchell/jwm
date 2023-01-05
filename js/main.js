@@ -348,7 +348,7 @@ require([
                             response.results[0].graphic &&
                             response.results[0].graphic.layer.id == "Weather Event"
                         ) {
-                            console.log(response.results)
+                            console.log(response.results[0].graphic.attributes["OBJECTID"])
                         }
                     })
             }
