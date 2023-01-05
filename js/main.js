@@ -106,6 +106,15 @@ require([
         });
     });
 
+    $("#createEvtBtn").on("click", () => {
+        let attributes = eventForm.getValues()
+        if (Object.keys(attributes).length < 3) {
+            alert("Please fill empty fields in form");
+            return;
+        }
+        $("#event-placement").css("display", "block");
+    });
+
     function populateEventsDropdown(layer) {
         $("#weather-dropdown calcite-option:not(:first)").remove();
         let query = layer.createQuery();
@@ -130,15 +139,6 @@ require([
     $("#weather-dropdown").on("calciteSelectChange", (e) => {
         // Send the selected weather event to the eventSelected function
         eventSelected(e.target.value);
-    })
-
-    $("#createEvtBtn").on("click", () => {
-        let attributes = eventForm.getValues()
-        if (Object.keys(attributes).length < 3) {
-            alert("Please fill empty fields in form");
-            return;
-        }
-        $("#event-placement").css("display", "block");
     })
 
     function eventSelected(selection) {
