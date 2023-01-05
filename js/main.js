@@ -330,6 +330,7 @@ require([
                 if (res.features.length > 0) {
                     editFeature = res.features[0];
                     eventForm.feature = editFeature;
+                    console.log($("#weather-dropdown"))
                 }
             });
     }
